@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^4.18.1",
     "mongodb": "^5.0.1",
     "mongoose": "^6.9.2",
     "nodejs-mobile-react-native": "^16.17.4",
