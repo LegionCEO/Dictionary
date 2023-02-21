@@ -4,6 +4,8 @@ import {createDictionary, giveDictionaryToUser} from "../controllers/createDicti
 import {createWord, giveWord} from "../controllers/createWord.js";
 import {renameDictionary} from "../controllers/renameDictionary.js";
 import {changeWord} from "../controllers/changeWord.js";
+import {getUserDictionaries} from "../controllers/getUserDictionaries.js";
+import {getDictionary} from "../controllers/getDictionary.js";
 
 const router = Router()
 
@@ -14,12 +16,18 @@ router.post("/create_user", createUser)
 router.post("/create_dic", createDictionary)
 router.get("/give_dic/:userId/:dicId", giveDictionaryToUser)
 
+// Get All User's Dictionaries
+router.get("/get_user_dics/:userId", getUserDictionaries)
+
+// Get Dictionary data
+router.get("/get_dicdata/:dicId", getDictionary)
+
 // Rename Dictionary for user
 router.patch("/rename_dic/:dicId", renameDictionary)
 
 // Create Word for Dictionary
 router.post("/create_word", createWord)
-router.get("/give_word/:dicId/:wordId", giveWord)
+router.post("/give_word/:dicId", giveWord)
 
 // Edit Word
 router.patch("/edit_word/:wordId", changeWord)
