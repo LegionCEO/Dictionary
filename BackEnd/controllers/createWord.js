@@ -21,7 +21,7 @@ export const createWord = async (req, res) => {
     }
 }
 
-export const giveWordOLD = async (req, res) => {
+/*export const giveWordOLD = async (req, res) => {
     try {
         req.params.dicId = toId(req.params.dicId)
         req.params.wordId = toId(req.params.wordId)
@@ -39,7 +39,7 @@ export const giveWordOLD = async (req, res) => {
         console.log(error)
         res.status(400).json({message: "Something went wrong..."})
     }
-}
+}*/
 
 
 export const giveWord = async (req, res) => {

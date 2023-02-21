@@ -6,6 +6,7 @@ import {renameDictionary} from "../controllers/renameDictionary.js";
 import {changeWord} from "../controllers/changeWord.js";
 import {getUserDictionaries} from "../controllers/getUserDictionaries.js";
 import {getDictionary} from "../controllers/getDictionary.js";
+import {wordValidator} from "../Validation/wordValidator.js";
 
 const router = Router()
 
@@ -27,7 +28,7 @@ router.patch("/rename_dic/:dicId", renameDictionary)
 
 // Create Word for Dictionary
 router.post("/create_word", createWord)
-router.post("/give_word/:dicId", giveWord)
+router.route("/give_word/:dicId").post(wordValidator, giveWord)
 
 // Edit Word
 router.patch("/edit_word/:wordId", changeWord)

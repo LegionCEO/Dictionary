@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "express-validator": "^6.15.0",
     "mongodb": "^5.0.1",
     "mongoose": "^6.9.2",
+    "mongoose-unique-validator": "^3.1.0",
     "nodejs-mobile-react-native": "^16.17.4",
     "react-native-webview": "^11.26.1"
   },
