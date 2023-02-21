@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const Dictionary = new mongoose.Schema({
     DictionaryName: {type: String, required: true},
-    Words: [{type: mongoose.Types.ObjectId, ref: "Word"}],
+    Words: [{
+        WordName: {type: String, required: true},
+        Trans: {type: String},
+        Translation: {type: String, required: true},
+        isLearned: {type: Boolean, required: true, default: false},
+    }],
     UserOwner: {type: mongoose.Types.ObjectId}
 })
 

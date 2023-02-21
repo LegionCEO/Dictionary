@@ -21,7 +21,7 @@ export const createWord = async (req, res) => {
     }
 }
 
-export const giveWord = async (req, res) => {
+export const giveWordOLD = async (req, res) => {
     try {
         req.params.dicId = toId(req.params.dicId)
         req.params.wordId = toId(req.params.wordId)
@@ -35,6 +35,22 @@ export const giveWord = async (req, res) => {
         dicToTake.Words.push(req.params.wordId)
         dicToTake.save()
 
+    }catch (error){
+        console.log(error)
+        res.status(400).json({message: "Something went wrong..."})
+    }
+}
+
+
+export const giveWord = async (req, res) => {
+    try {
+        const wordToAdd = await Dictionary.findById(req.params.dicId)
+        const {WordName, Trans, Translation, isLearned} = req.body
+
+        wordToAdd.Words.push(req.body)
+        wordToAdd.save()
+
+        res.status(201).json(wordToAdd)
     }catch (error){
         console.log(error)
         res.status(400).json({message: "Something went wrong..."})
